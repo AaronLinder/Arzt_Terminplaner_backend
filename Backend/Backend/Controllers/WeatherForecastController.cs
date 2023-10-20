@@ -15,14 +15,15 @@ namespace Backend.Controllers
         }
 
         [HttpGet(Name = "GetArzt")]
-        public IEnumerable<Arzt> Get()
+        public Arzt Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new Arzt
-            {
-                name = "Kim",
-                adresse ="AVHjfkj 14"
-            })
-            .ToArray();
+            return (
+                new Arzt
+                {
+                    name = "Kim",
+                    adresse = "AVHjfkj 14"
+                }
+            );          
         }
     }
 }
