@@ -20,8 +20,8 @@ namespace Backend.Controllers
             return (
                 new Arzt
                 {
-                    name = "Kim",
-                    adresse = "AVHjfkj 14"
+                    name = "Peter",
+                    adresse = "Blumenstraﬂe 7"
                 }
             );          
         }
