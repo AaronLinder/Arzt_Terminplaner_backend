@@ -22,8 +22,9 @@ namespace Backend.Controllers
             connection.Open();
         }
 
-        [HttpGet(Name = "GetArzt")]
-        public List<Arzt> Get() {
+        [HttpGet(Name = "GetAllAerzte")]
+        public List<Arzt> Get()
+        {
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM Arzt");
             cmd.CommandType = CommandType.Text;
             cmd.Connection = connection;
@@ -55,9 +56,32 @@ namespace Backend.Controllers
                 }
             }
 
-                return (
-                aerzteListe
-            );          
+            return (
+            aerzteListe
+        );
+        }
+
+        [HttpPost(Name = "AddArzt")]
+        public void AddArzt(string name, string adresse)
+        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO Arzt (Name, Adresse) VALUES ('" + name + "', '" + adresse + "')");
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = connection;
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("linder");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
         }
     }
 }
