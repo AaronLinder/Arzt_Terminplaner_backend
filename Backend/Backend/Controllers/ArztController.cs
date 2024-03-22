@@ -38,9 +38,14 @@ namespace Backend.Controllers
                 {
                     aerzteListe.Add(new Arzt
                     {
-                        name = dr.GetString("name"),
-                        adresse = dr.GetString("adresse")
-                    });
+                        Arzt_ID = dr.GetInt32("Arzt_ID"),
+                        Vorname = dr.GetString("Vorname"),
+                        Nachname = dr.GetString("Nachname"),
+                        Adresse = dr.GetString("Adresse"),
+                        Ort = dr.GetString("Ort"),
+                        Oefnugszeit = dr.GetDateTime("Oefnungszeit"),
+                        Schlieﬂzeit = dr.GetDateTime("Schlieﬂzeit"),
+                    }); ;
                 }
                 dr.Close();
             }
@@ -62,9 +67,9 @@ namespace Backend.Controllers
         }
 
         [HttpGet(Name = "GetAerzt")]
-        public Arzt GetArzt(string name)
+        public Arzt GetArzt(int id)
         {
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Arzt where name=" + name);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Arzt where Arzt_ID=" + id);
             cmd.CommandType = CommandType.Text;
             cmd.Connection = connection;
             Arzt arzt = new Arzt();
@@ -76,8 +81,13 @@ namespace Backend.Controllers
                 {
                     arzt = new Arzt
                     {
-                        name = dr.GetString("name"),
-                        adresse = dr.GetString("adresse")
+                        Arzt_ID = dr.GetInt32("Arzt_ID"),
+                        Vorname = dr.GetString("Vorname"),
+                        Nachname = dr.GetString("Nachname"),
+                        Adresse = dr.GetString("Adresse"),
+                        Ort = dr.GetString("Ort"),
+                        Oefnugszeit = dr.GetDateTime("Oefnungszeit"),
+                        Schlieﬂzeit = dr.GetDateTime("Schlieﬂzeit"),
                     };
                 }
                 dr.Close();
@@ -100,9 +110,9 @@ namespace Backend.Controllers
         }
 
         [HttpPost(Name = "AddArzt")]
-        public void AddArzt(string name, string adresse)
+        public void AddArzt(string Vorname, string Nachname, string Adresse, string Ort, DateTime Oeffnungszeit, DateTime Schlieﬂzeit)
         {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO Arzt (Name, Adresse) VALUES ('" + name + "', '" + adresse + "')");
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO Arzt (Arzt_ID, Vorname, Nachname, Adresse, Ort, Oeffnungszeit, Schlieﬂzeit) VALUES ('" + Vorname + "', '" + Nachname + "', '" + Adresse + "', '" + Ort + "', '" + Oeffnungszeit + "', '" + Schlieﬂzeit + "')");
             cmd.CommandType = CommandType.Text;
             cmd.Connection = connection;
             try
