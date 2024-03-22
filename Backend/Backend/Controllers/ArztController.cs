@@ -46,7 +46,7 @@ namespace Backend.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("linder");
+                Console.WriteLine("Kaputt");
             }
             finally
             {
@@ -58,6 +58,44 @@ namespace Backend.Controllers
 
             return (
             aerzteListe
+        );
+        }
+
+        [HttpGet(Name = "GetAerzt")]
+        public Arzt GetArzt(string name)
+        {
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Arzt where name=" + name);
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = connection;
+            Arzt arzt = new Arzt();
+            try
+            {
+                MySqlDataReader dr;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    arzt = new Arzt
+                    {
+                        name = dr.GetString("name"),
+                        adresse = dr.GetString("adresse")
+                    };
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Kaputt");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
+            return (
+            arzt
         );
         }
 

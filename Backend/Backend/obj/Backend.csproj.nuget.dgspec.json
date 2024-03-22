@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kimga\\Dokumente\\Schule Htl Dornbirn\\5. Klasse\\SPL\\SPL_inf\\Arzt_Terminplaner\\Arzt_Terminplaner_backend\\Backend\\Backend\\Backend.csproj": {}
+    "C:\\schule\\5bWI\\SPL\\Arzt Backend\\Arzt_Terminplaner_backend\\Backend\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kimga\\Dokumente\\Schule Htl Dornbirn\\5. Klasse\\SPL\\SPL_inf\\Arzt_Terminplaner\\Arzt_Terminplaner_backend\\Backend\\Backend\\Backend.csproj": {
+    "C:\\schule\\5bWI\\SPL\\Arzt Backend\\Arzt_Terminplaner_backend\\Backend\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kimga\\Dokumente\\Schule Htl Dornbirn\\5. Klasse\\SPL\\SPL_inf\\Arzt_Terminplaner\\Arzt_Terminplaner_backend\\Backend\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\schule\\5bWI\\SPL\\Arzt Backend\\Arzt_Terminplaner_backend\\Backend\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\kimga\\Dokumente\\Schule Htl Dornbirn\\5. Klasse\\SPL\\SPL_inf\\Arzt_Terminplaner\\Arzt_Terminplaner_backend\\Backend\\Backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\kimga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kimga\\Dokumente\\Schule Htl Dornbirn\\5. Klasse\\SPL\\SPL_inf\\Arzt_Terminplaner\\Arzt_Terminplaner_backend\\Backend\\Backend\\obj\\",
+        "projectPath": "C:\\schule\\5bWI\\SPL\\Arzt Backend\\Arzt_Terminplaner_backend\\Backend\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\aaron\\.nuget\\packages\\",
+        "outputPath": "C:\\schule\\5bWI\\SPL\\Arzt Backend\\Arzt_Terminplaner_backend\\Backend\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kimga\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aaron\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -67,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
