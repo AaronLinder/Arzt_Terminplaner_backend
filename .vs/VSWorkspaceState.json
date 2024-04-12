@@ -5,6 +5,6 @@
     "\\Backend\\Backend",
     "\\Backend\\Backend\\Controllers"
   ],
-  "SelectedNode": "\\Backend\\Backend\\Controllers\\WeatherForecastController.cs",
+  "SelectedNode": "\\Backend\\Backend\\Controllers\\ArztController.cs",
   "PreviewInSolutionExplorer": false
 }

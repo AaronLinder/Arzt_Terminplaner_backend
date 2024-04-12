@@ -43,15 +43,15 @@ namespace Backend.Controllers
                         Nachname = dr.GetString("Nachname"),
                         Adresse = dr.GetString("Adresse"),
                         Ort = dr.GetString("Ort"),
-                        Oefnugszeit = dr.GetDateTime("Oefnungszeit"),
-                        Schlieﬂzeit = dr.GetDateTime("Schlieﬂzeit"),
-                    }); ;
+                        Oeffnugszeit = dr.GetTimeSpan("Oeffnungszeit"),
+                        Schlieﬂzeit = dr.GetTimeSpan("Schlieﬂzeit"),
+                    });
                 }
                 dr.Close();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Kaputt");
+                Console.WriteLine(ex);
             }
             finally
             {
@@ -66,7 +66,8 @@ namespace Backend.Controllers
         );
         }
 
-        [HttpGet(Name = "GetAerzt")]
+        /*
+        [HttpGet(Name = "GetAerztById")]
         public Arzt GetArzt(int id)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM Arzt where Arzt_ID=" + id);
@@ -108,6 +109,9 @@ namespace Backend.Controllers
             arzt
         );
         }
+
+        */
+
 
         [HttpPost(Name = "AddArzt")]
         public void AddArzt(string Vorname, string Nachname, string Adresse, string Ort, DateTime Oeffnungszeit, DateTime Schlieﬂzeit)
