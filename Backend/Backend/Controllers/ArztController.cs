@@ -22,7 +22,7 @@ namespace Backend.Controllers
             connection.Open();
         }
 
-        [HttpGet(Name = "GetAllAerzte")]
+        [HttpGet("all", Name = "GetAllAerzte")]
         public List<Arzt> Get()
         {
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM Arzt");
@@ -66,9 +66,8 @@ namespace Backend.Controllers
         );
         }
 
-        /*
-        [HttpGet(Name = "GetAerztById")]
-        public Arzt GetArzt(int id)
+        [HttpGet("{id}", Name = "GetAerztById")]
+        public Arzt GetArztByID(int id)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM Arzt where Arzt_ID=" + id);
             cmd.CommandType = CommandType.Text;
@@ -87,8 +86,8 @@ namespace Backend.Controllers
                         Nachname = dr.GetString("Nachname"),
                         Adresse = dr.GetString("Adresse"),
                         Ort = dr.GetString("Ort"),
-                        Oefnugszeit = dr.GetDateTime("Oefnungszeit"),
-                        Schlieﬂzeit = dr.GetDateTime("Schlieﬂzeit"),
+                        Oeffnugszeit = dr.GetTimeSpan("Oeffnungszeit"),
+                        Schlieﬂzeit = dr.GetTimeSpan("Schlieﬂzeit"),
                     };
                 }
                 dr.Close();
@@ -110,11 +109,10 @@ namespace Backend.Controllers
         );
         }
 
-        */
 
 
         [HttpPost(Name = "AddArzt")]
-        public void AddArzt(string Vorname, string Nachname, string Adresse, string Ort, DateTime Oeffnungszeit, DateTime Schlieﬂzeit)
+        public void AddArzt(string Vorname, string Nachname, string Adresse, string Ort, TimeSpan Oeffnungszeit, TimeSpan Schlieﬂzeit)
         {
             MySqlCommand cmd = new MySqlCommand("INSERT INTO Arzt (Arzt_ID, Vorname, Nachname, Adresse, Ort, Oeffnungszeit, Schlieﬂzeit) VALUES ('" + Vorname + "', '" + Nachname + "', '" + Adresse + "', '" + Ort + "', '" + Oeffnungszeit + "', '" + Schlieﬂzeit + "')");
             cmd.CommandType = CommandType.Text;
