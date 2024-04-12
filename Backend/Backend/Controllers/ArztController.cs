@@ -22,7 +22,7 @@ namespace Backend.Controllers
             connection.Open();
         }
 
-        [HttpGet("all", Name = "GetAllAerzte")]
+        [HttpGet("/GetAllAerzte")]
         public List<Arzt> Get()
         {
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM Arzt");
@@ -66,7 +66,7 @@ namespace Backend.Controllers
         );
         }
 
-        [HttpGet("{id}", Name = "GetAerztById")]
+        [HttpGet("/GetAerztById")]
         public Arzt GetArztByID(int id)
         {
             MySqlCommand cmd = new MySqlCommand("SELECT * FROM Arzt where Arzt_ID=" + id);
@@ -111,10 +111,10 @@ namespace Backend.Controllers
 
 
 
-        [HttpPost(Name = "AddArzt")]
-        public void AddArzt(string Vorname, string Nachname, string Adresse, string Ort, TimeSpan Oeffnungszeit, TimeSpan Schlieﬂzeit)
+        [HttpPost("/AddArzt")]
+        public IActionResult AddArzt(string Vorname, string Nachname, string Adresse, TimeSpan Oeffnungszeit, TimeSpan Schlieﬂzeit)
         {
-            MySqlCommand cmd = new MySqlCommand("INSERT INTO Arzt (Arzt_ID, Vorname, Nachname, Adresse, Ort, Oeffnungszeit, Schlieﬂzeit) VALUES ('" + Vorname + "', '" + Nachname + "', '" + Adresse + "', '" + Ort + "', '" + Oeffnungszeit + "', '" + Schlieﬂzeit + "')");
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO Arzt (Vorname, Nachname, Adresse, Oeffnungszeit, Schlieﬂzeit) VALUES ('" + Vorname + "', '" + Nachname + "', '" + Adresse + "', '" + Oeffnungszeit + "', '" + Schlieﬂzeit + "')");
             cmd.CommandType = CommandType.Text;
             cmd.Connection = connection;
             try
@@ -123,7 +123,8 @@ namespace Backend.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine("linder");
+                Console.WriteLine(ex);
+                return StatusCode(400);
             }
             finally
             {
@@ -132,6 +133,7 @@ namespace Backend.Controllers
                     connection.Close();
                 }
             }
+            return StatusCode(200);
         }
     }
 }
